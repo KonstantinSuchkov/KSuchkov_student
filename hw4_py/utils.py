@@ -16,3 +16,4 @@ def currency_rates(valute):
         val = result.replace(',', '.')
         val = Decimal(val)
         return val
+# if __name__ == '__main__': - думал использовать этот прием, но вроде работает корректно и так
