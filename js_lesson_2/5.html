@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+    /**
+     * функция производит сложение двух аргументов, которые необходимо передать функции.
+     * numb_1 и num_2 соответственно первое и второе числа
+    */
+    function sum_numbers(numb_1, numb_2) {
+      return (numb_1 + numb_2);
+    }
+
+    /**
+     * функция производит вычитание двух аргументов, которые необходимо передать функции.
+     * numb_1 и num_2 соответственно первое и второе числа. При этом проводится проверка чисел, чтобы
+     * из большего числа вычесть меньшее.
+    */
+    function minus_numbers(numb_1, numb_2) {
+      if (numb_1 > numb_2) {
+        return (numb_1 - numb_2);
+      } else if (numb_2 > numb_1) {
+        return (numb_2 - numb_1);
+      } else {
+        return 0;
+      }
+    }
+
+    /**
+     * функция производит умножение двух аргументов, которые необходимо передать функции.
+     * numb_1 и num_2 соответственно первое и второе числа.
+    */
+    function mult_numbers(numb_1, numb_2) {
+      return (numb_1 * numb_2);
+    }
+
+    /**
+     * функция производит деление двух аргументов, которые необходимо передать функции.
+     * numb_1 и num_2 соответственно первое и второе числа.
+    */
+    function div_numbers(numb_1, numb_2) {
+      return (numb_1 / numb_2);
+    }
+
+    /**
+     * функция производит операцию, в зависимости от переданного параметра operation.
+     * arg1 и arg2 соответственно числа, с которыми осуществляется математическая операция, а 
+     * аргумент operation - сама операция, имеющая вид строки '+', '-', '*', '/'
+     * Проводим проверку operation на соответствие математического знака и возвращаем 
+     * нужную функцию.
+     * В случае, если operation не равняется математическому знаку возвращаем NaN
+    */
+    function mathOperation(arg1, arg2, operation) {
+      if (operation == '+') {
+        return sum_numbers(arg1, arg2);
+      }
+      if (operation == '-') {
+        return minus_numbers(arg1, arg2);
+      }
+      if (operation == '*') {
+        return mult_numbers(arg1, arg2);
+      }
+      if (operation == '/') {
+        return div_numbers(arg1, arg2)
+      }
+      if (operation != '+' || operation != '-' || operation != '*' || operation != '/') {
+        return NaN;
+      }
+
+
+    }
+
+    console.log(mathOperation(2, 4, '-'));
+    console.log(mathOperation(2, 4, '/'));
+    console.log(mathOperation(2, 4, '*'));
+    console.log(mathOperation(2, 4, ';'));
+    console.log(mathOperation(2, 4, '+'));
+
+  </script>
+</body>
+
+</html>
