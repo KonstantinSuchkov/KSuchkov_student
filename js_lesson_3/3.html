@@ -29,7 +29,12 @@
     },
   ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  function discount(dict) {
+      dict.price = dict.price - dict.price / 100 * 15
+      console.log(dict.price);
+    }
+
+    products.forEach(discount);
 </script>
 </body>
 </html>
