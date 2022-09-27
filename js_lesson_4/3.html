@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Необязательное задание.
+
+Необходимо создать функцию getDigitsOfNumber, которая принимает целое
+положительное число в диапазоне от 0 до 1000.
+Функция должна вернуть обычный объект с тремя свойствами:
+1. units - содержит число, количество единиц в параметре функции.
+2. dozens - содержит число, количество десятков в параметре функции.
+3. hundreds - содержит число, количество сотен в параметре функции.
+Если функции было передано не целое положительное число, либо число в ином
+диапазоне, нежели задано в условии, функция должна вывести в консоль информацию
+об ошибке и вернуть пустой объект.
+Необходимо также прописать jsdoc для данной функции.
+
+Подсказка:
+У объекта console есть разные методы, мы часто используем console.log для того
+чтобы вывести в консоль какое-то значение, однако есть и другие методы, найдите
+в интернете какие методы существуют и используйте "правильный метод" в нужном
+месте. Обратите внимание что функция не должна выбрасывать ошибку, она должна
+только вывести в консоль информацию о том, что что-то пошло не так.
+Обратите внимание на слова "от 0 до 1000", это означает диапазон [0, 999], что
+можно прочитать как "от нуля до 999 включительно".
+-->
+  <script>
+    "use strict";
+    /*
+    Функция getDigitsOfNumber передает объект result
+    Функция принимает единственный параметр number
+    */
+    function getDigitsOfNumber(number) {
+      if (number > 0 && number < 999 && typeof number === 'number') {
+        const result = {
+          units: number % 10,
+          dozens: Math.trunc(number / 10) % 10,
+          hundreds: Math.trunc(number / 100) % 10,
+        }
+        return result
+      }
+      console.log('Error! ' + number + ' - wrong param for function!')
+      return {}
+    }
+    console.log(getDigitsOfNumber(321)); // Object dozens:2 hundreds:3 units:1 . При этом если несколько раз вызывать функцию
+    // например (обновляя chrome) то результат будет {units: 1, dozens: 2, hundreds: 3} (без указания object), не знаю почему
+    console.log(getDigitsOfNumber('string')); //Error! string - wrong param for function! Object
+    console.log(getDigitsOfNumber(1321)); //Error! 1321 - wrong param for function! Object
+  </script>
+</body>
+
+</html>
